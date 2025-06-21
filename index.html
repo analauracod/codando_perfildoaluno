@@ -2,39 +2,75 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Perfil do Aluno - Fase 01</title>
+  <title>Perfil do Aluno - Fase 02</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function trocarImagem(foto) {
+      document.getElementById("foto-principal").src = foto;
+    }
+  </script>
 </head>
 <body>
-  <h1>Perfil do Aluno</h1>
+  <h1>Meu Perfil</h1>
 
-  <img src="c:\Users\alaura.GRUPOPZM\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\A2BA87EE952398C55AF6D22824DA2224\Imagem do WhatsApp de 2025-06-09 à(s) 10.14.28_c523f353.jpg" alt="Foto de Perfil" width="160" height="200">
-
-  <h2>Informações Pessoais</h2>
-  <p><strong>Nome Completo:</strong> Ana Laura Rodrigues De Oliveira</p>
-  <p><strong>RA:</strong> 324141319</p>
-  <p><strong>Curso e Período Atual:</strong> Análise e Desenvolvimento de Sistemas - 3º Semestre</p>
-  <p><strong>Endereço Completo:</strong> Rua Governador Valadares, 195 - Jardim Vitória, Belo Horizonte - MG, 31975-410</p>
-  <p><strong>E-mail:</strong> analaura.dolv@gmail.com</p>
-
-  <h2>UCs Já Cursadas</h2>
-  <ul>
-    <li>Modelagem de software</li>
-    <li>Programação de soluções computacionais</li>
-    <li>Vida & Carreira</li>
-    <li>Ambientes computacionais e conectividade</li>
-    <li>Sistemas computacionais e segurança</li>
-  </ul>
-
-  <h2>Perfil Pessoal</h2>
-  <p>Tenho 20 anos e sou apaixonada por tecnologia. Sou uma pessoa comunicativa, curiosa e adoro aprender coisas novas. No meu tempo livre, gosto de assistir filmes e explorar fatos aleatórios que despertam minha curiosidade. Sou fascinada por música — escuto de tudo, mas meu gênero favorito é o POP.</p>
-
-  <h2>Perfil Profissional/Acadêmico</h2>
-  <p>A área da tecnologia sempre despertou minha curiosidade, por isso estou em constante busca por aprendizado e aprimoramento. Atualmente, atuo na área com Suporte e Implantação de Sistemas, o que tem sido uma experiência enriquecedora. No entanto, meu objetivo é direcionar minha carreira para a área de Segurança da Informação e/ou Desenvolvimento de Sistemas, com foco em front-end. </p>
-
-  <h2>Redes Sociais</h2>
-  <p>
-    <a href="https://www.linkedin.com/in/ana-rodrigues-b02968296/" target="_blank">LinkedIn</a><br>
-    <a href="https://github.com/analauracod" target="_blank">GitHub</a>
-  </p>
+  <table border="1">
+    <tr>
+        <td colspan="2" class="foto-container">
+        <img id="foto-principal" src="c:\Users\alaura.GRUPOPZM\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\A2BA87EE952398C55AF6D22824DA2224\Imagem do WhatsApp de 2025-06-09 à(s) 10.14.28_d4c0553f.jpg" alt="Foto de Perfil" width="160" height="200">
+        <div class="miniaturas">
+          <img src="img/foto1.jpg" onclick="trocarImagem('img/foto1.jpg')" alt="Miniatura 1">
+          <img src="img/foto2.jpg" onclick="trocarImagem('img/foto2.jpg')" alt="Miniatura 2">
+          <img src="img/foto3.jpg" onclick="trocarImagem('img/foto3.jpg')" alt="Miniatura 3">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Nome Completo</th>
+      <td>Ana Laura Rodrigues De Oliveira</td>
+    </tr>
+    <tr>
+      <th>RA</th>
+      <td>324141319</td>
+    </tr>
+    <tr>
+      <th>Curso / Período</th>
+      <td>Análise e Desenvolvimento de Sistemas - 3º Semestre</td>
+    </tr>
+    <tr>
+      <th>Endereço</th>
+      <td>Rua Governador Valadares, 195 - Jardim Vitória, Belo Horizonte - MG, 31975-410</td>
+    </tr>
+    <tr>
+      <th>E-mail</th>
+      <td>analaura.dolv@gmail.com</td>
+    </tr>
+    <tr>
+      <th>UCs Já Cursadas</th>
+      <td>
+        <ul>
+          <li>Modelagem de software</li>
+          <li>Programação de soluções computacionais</li>
+          <li>Vida & Carreira</li>
+          <li>Ambientes computacionais e conectividade</li>
+          <li>Sistemas computacionais e segurança</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th>Perfil Pessoal</th>
+      <td>Tenho 20 anos e sou apaixonada por tecnologia. Sou comunicativa, curiosa e adoro aprender. No tempo livre, gosto de filmes e explorar curiosidades. Sou fascinada por música, especialmente POP.</td>
+    </tr>
+    <tr>
+      <th>Perfil Profissional/Acadêmico</th>
+      <td>Atuo com Suporte e Implantação de Sistemas. Busco crescer em Segurança da Informação ou Desenvolvimento (front-end).</td>
+    </tr>
+    <tr>
+      <th>Redes Sociais</th>
+      <td>
+        <a href="https://www.linkedin.com/in/ana-rodrigues-a21062025na/" target="_blank">LinkedIn</a><br>
+        <a href="https://github.com/analauracod" target="_blank">GitHub</a>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
