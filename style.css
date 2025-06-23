@@ -54,7 +54,6 @@ a:hover {
   border: 3px solid #ff00bf;
 }
 
-
 .miniaturas {
   margin-top: 10px;
 }
@@ -71,3 +70,41 @@ a:hover {
 .miniaturas img:hover {
   border-color: #003566;
 }
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-top: 4px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-left: 5px;
+  padding: 4px 8px;
+  border: none;
+  background-color: #d879c9;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b94da6;
+}
+
+#cpf-erro,
+#email-erro {
+  font-size: 0.9em;
+  color: red;
+  display: block;
+  margin-top: 5px;
+}
+
