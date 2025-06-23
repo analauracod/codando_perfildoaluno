@@ -1,28 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Perfil do Aluno - Fase 02</title>
-  <link rel="stylesheet" href="style.css">
-  <script>
-    function trocarImagem(foto) {
-      document.getElementById("foto-principal").src = foto;
-    }
-  </script>
-</head>
-<body>
-  <h1>Meu Perfil</h1>
-
-  <table border="1">
-    <tr>
-        <td colspan="2" class="foto-container">
-        <img id="foto-principal" src="c:\Users\alaura.GRUPOPZM\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\A2BA87EE952398C55AF6D22824DA2224\Imagem do WhatsApp de 2025-06-09 à(s) 10.14.28_d4c0553f.jpg" alt="Foto de Perfil" width="160" height="200">
-        <div class="miniaturas">
-          <img src="img/foto1.jpg" onclick="trocarImagem('img/foto1.jpg')" alt="Miniatura 1">
-          <img src="img/foto2.jpg" onclick="trocarImagem('img/foto2.jpg')" alt="Miniatura 2">
-          <img src="img/foto3.jpg" onclick="trocarImagem('img/foto3.jpg')" alt="Miniatura 3">
-        </div>
-      </td>
+<!DOCTYPE html> 
+<html lang= "pt-br">
+  <head>
+    
+    <meta charset="UTF-8">
+    <title>Perfil do Aluno</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>   
+    <h1>Meu Perfil</h1>
+    
+    <table border="1">
+      <tr>
+          <td colspan="2" class="foto-container">
+            <img id="foto-principal" src="img/foto1.jpg" alt="Foto de Perfil" width="160" height="200">
+            <div class="miniaturas">
+              <img src="img/foto1.jpg" onclick="trocarImagem('img/foto1.jpg')" alt="Miniatura 1">
+              <img src="img/foto2.jpg" onclick="trocarImagem('img/foto2.jpg')" alt="Miniatura 2">
+              <img src="img/foto3.jpg" onclick="trocarImagem('img/foto3.jpg')" alt="Miniatura 3">
+            </div>
+        </td>
     </tr>
     <tr>
       <th>Nome Completo</th>
@@ -42,23 +38,36 @@
     </tr>
     <tr>
       <th>E-mail</th>
-      <td>analaura.dolv@gmail.com</td>
+      <td>
+        <input type="email" id="email" onblur="validarEmail(this)">
+        <span id="email-erro" style="color:red;"></span>
+      </td>
+    </tr>
+    <tr>
+       <th>CPF</th>
+      <td>
+        <input type="text" id="cpf" maxlength="14" onblur="validarCPF(this)">
+        <span id="cpf-erro" style="color:red;"></span>
+      </td>
     </tr>
     <tr>
       <th>UCs Já Cursadas</th>
       <td>
-        <ul>
-          <li>Modelagem de software</li>
-          <li>Programação de soluções computacionais</li>
-          <li>Vida & Carreira</li>
-          <li>Ambientes computacionais e conectividade</li>
-          <li>Sistemas computacionais e segurança</li>
+        <ul id="lista-ucs">
+          <li>Modelagem de software <button onclick="mover(this, -1)">↑</button> <button onclick="mover(this, 1)">↓</button></li>
+          <li>Programação de soluções computacionais <button onclick="mover(this, -1)">↑</button> <button onclick="mover(this, 1)">↓</button></li>
+          <li>Vida & Carreira <button onclick="mover(this, -1)">↑</button> <button onclick="mover(this, 1)">↓</button></li>
+          <li>Ambientes computacionais e conectividade <button onclick="mover(this, -1)">↑</button> <button onclick="mover(this, 1)">↓</button></li>
+          <li>Sistemas computacionais e segurança <button onclick="mover(this, -1)">↑</button> <button onclick="mover(this, 1)">↓</button></li>
         </ul>
+         <button onclick="adicionarUC()">Adicionar nova UC</button>
       </td>
     </tr>
     <tr>
-      <th>Perfil Pessoal</th>
-      <td>Tenho 20 anos e sou apaixonada por tecnologia. Sou comunicativa, curiosa e adoro aprender. No tempo livre, gosto de filmes e explorar curiosidades. Sou fascinada por música, especialmente POP.</td>
+       <th>Perfil Pessoal</th>
+      <td>
+        <textarea id="perfil-pessoal" rows="5" style="width:100%;">Tenho 20 anos e sou apaixonada por tecnologia. Sou comunicativa, curiosa e adoro aprender. No tempo livre, gosto de filmes e explorar curiosidades. Sou fascinada por música, especialmente POP.</textarea>
+      </td>
     </tr>
     <tr>
       <th>Perfil Profissional/Acadêmico</th>
@@ -72,5 +81,50 @@
       </td>
     </tr>
   </table>
+
+    <script>
+    function trocarImagem(foto) {
+      document.getElementById("foto-principal").src = foto;
+    }
+    function adicionarUC() {
+      const novaUC = prompt("Digite o nome da nova UC:");
+      if (novaUC) {
+        const ul = document.getElementById("lista-ucs");
+        const li = document.createElement("li");
+        li.innerHTML = `${novaUC} <button onclick="mover(this, -1)">↑</button> <button onclick="mover(this, 1)">↓</button>`;
+        ul.appendChild(li);
+      }
+    }
+    function mover(btn, direcao) {
+      const li = btn.parentElement;
+      const ul = li.parentElement;
+      const index = Array.from(ul.children).indexOf(li);
+      const novoIndex = index + direcao;
+      if (novoIndex >= 0 && novoIndex < ul.children.length) {
+        ul.insertBefore(li, ul.children[direcao === 1 ? novoIndex + 1 : novoIndex]);
+      }
+    }
+    function validarCPF(input) {
+      const cpf = input.value;
+      const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+      document.getElementById("cpf-erro").textContent = regex.test(cpf) ? "" : "CPF inválido. Use o formato 000.000.000-00.";
+    }
+    function validarEmail(input) {
+      const email = input.value;
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      document.getElementById("email-erro").textContent = regex.test(email) ? "" : "E-mail inválido.";
+    }
+  </script>
 </body>
 </html>
+      
+
+  
+
+
+
+
+
+
+      
+     
